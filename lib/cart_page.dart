@@ -1,6 +1,5 @@
 import 'package:e_commerce/firstScreen.dart';
 import 'package:flutter/material.dart';
-
 import 'model/itemmodel.dart';
 
 class SecondScreen extends StatefulWidget {
