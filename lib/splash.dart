@@ -13,7 +13,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(seconds: 0),() {
+      const Duration(seconds: 3),() {
         Navigator.pushReplacement(
           context , MaterialPageRoute(builder: (context) => FirstScreen(),)
         );
@@ -23,7 +23,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('Welcome')),
+      body: Center(child: Text('Welcome',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
     );
   }
 }

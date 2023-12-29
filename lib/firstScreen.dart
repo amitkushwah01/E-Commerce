@@ -60,10 +60,17 @@ class _FirstScreenState extends State<FirstScreen> {
                           context , MaterialPageRoute(builder: (context) => DetailPage(img , p , t ),)
                         );
                       },
-                      child: Image.network(img,height: MediaQuery.of(context).size.height*.5,)
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10,left: 10),
+                        child: Image.network(img,height: MediaQuery.of(context).size.height*.5,),
+                      )
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height*.04),
-                    Text(snapshot.data![index].title.toString(),style: TextStyle(fontSize: 12),),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20 , right: 20),
+                      child: Text(snapshot.data![index].title.toString(),style: TextStyle(fontSize: 12),),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height*.012,),
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -72,13 +79,30 @@ class _FirstScreenState extends State<FirstScreen> {
                           Icon(Icons.currency_rupee,size: 20,),
                           Text(snapshot.data![index].price.toString(),style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                           SizedBox(width: MediaQuery.of(context).size.width*.05,),
-                          ElevatedButton(onPressed: (){
-                            selectedItems.add(snapshot.data![index]);
-                          }, child: Text('Add to Cart'))
+
+                          InkWell(
+                            onTap: () {
+                              selectedItems.add(snapshot.data![index]);
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width*.24,
+                              height: MediaQuery.of(context).size.height*.040,
+                              decoration: BoxDecoration(color: Colors.amber[400],
+                                borderRadius: BorderRadius.circular(15)
+                              ),
+                              child: Center(child: Text('Add to Cart',style: TextStyle(fontWeight: FontWeight.bold),))
+                            ),
+                          ),
+
+                          // ElevatedButton(onPressed: (){
+                          //   selectedItems.add(snapshot.data![index]);
+                          // }, child: Text('Add to Cart'))
+
                         ],
                       ),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height*.04),
+                    const Text('____________________________________________________'),
+                    SizedBox(height: MediaQuery.of(context).size.height*.02),
                   ],
                 );
               },

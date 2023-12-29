@@ -1,7 +1,7 @@
 // import 'dart:convert';
+// import 'package:http/http.dart' as httpClient;
 import 'package:dio/dio.dart';
 import 'package:e_commerce/splash.dart';
-// import 'package:http/http.dart' as httpClient;
 import 'package:e_commerce/model/itemmodel.dart';
 import 'package:flutter/material.dart';
 void main()
@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget
       }
     } catch (error) {
       print('Error: $error');
+      print('not ok');
       rethrow;
     }
   }

@@ -22,22 +22,27 @@ class _SecondScreenState extends State<SecondScreen> {
         itemCount: widget.selectedItems.length,
         itemBuilder: (context, index) {
           return 
-          ListTile(
-            title: Row(
-              children: [
-                Icon(Icons.currency_rupee),
-                Text(widget.selectedItems[index].price!.toString(),style: TextStyle(fontWeight: FontWeight.bold),),
-                SizedBox(width: MediaQuery.of(context).size.width*.7,),
-                InkWell(
-                  onTap: () {
-                    selectedItems.remove(widget.selectedItems[index]);
-                    setState(() {});
-                  },
-                  child: Icon(Icons.delete,color: Colors.red,)
-                )
-              ],
-            ),
-            subtitle: Image.network(widget.selectedItems[index].image!,height: MediaQuery.of(context).size.height*.5,),
+          Column(
+            children: [
+              ListTile(
+                title: Row(
+                  children: [
+                    Icon(Icons.currency_rupee),
+                    Text(widget.selectedItems[index].price!.toString(),style: TextStyle(fontWeight: FontWeight.bold),),
+                    SizedBox(width: MediaQuery.of(context).size.width*.6,),
+                    InkWell(
+                      onTap: () {
+                        selectedItems.remove(widget.selectedItems[index]);
+                        setState(() {});
+                      },
+                      child: Icon(Icons.delete,color: Colors.red,)
+                    )
+                  ],
+                ),
+                subtitle: Image.network(widget.selectedItems[index].image!,height: MediaQuery.of(context).size.height*.5,),
+              ),
+              const Text('____________________________________________________'),
+            ],
           );
         },
       ),
